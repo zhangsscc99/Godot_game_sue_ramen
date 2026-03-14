@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="90" viewBox="0 0 80 90">
+  <!-- Ramen packet - orange/red bag -->
+  <rect x="8" y="20" width="64" height="50" fill="#FF4422" rx="8"/>
+  <!-- Bag shine -->
+  <rect x="12" y="24" width="56" height="42" fill="#FF6644" rx="6"/>
+  <!-- Seal top -->
+  <rect x="8" y="18" width="64" height="10" fill="#CC2200" rx="4"/>
+  <!-- Seal bottom -->
+  <rect x="8" y="62" width="64" height="10" fill="#CC2200" rx="4"/>
+  <!-- Noodle graphic on bag -->
+  <path d="M20,38 Q30,32 40,38 Q50,44 60,38" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M20,46 Q30,40 40,46 Q50,52 60,46" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Text area -->
+  <rect x="15" y="52" width="50" height="12" fill="#CC2200" rx="3" opacity="0.5"/>
+  <text x="40" y="62" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">拉面</text>
+</svg>

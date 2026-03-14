@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="100" viewBox="0 0 80 100">
+  <!-- Flame shapes -->
+  <ellipse cx="40" cy="80" rx="18" ry="8" fill="#FF6600" opacity="0.6"/>
+  <!-- Inner flame -->
+  <path d="M40,20 C30,35 22,50 28,68 C32,78 48,78 52,68 C58,50 50,35 40,20Z" fill="#FF4400"/>
+  <path d="M40,30 C33,42 28,55 32,68 C35,75 45,75 48,68 C52,55 47,42 40,30Z" fill="#FF8800"/>
+  <path d="M40,42 C36,52 34,60 36,68 C38,73 42,73 44,68 C46,60 44,52 40,42Z" fill="#FFDD00"/>
+  <ellipse cx="40" cy="80" rx="12" ry="5" fill="#FF6600" opacity="0.8"/>
+</svg>

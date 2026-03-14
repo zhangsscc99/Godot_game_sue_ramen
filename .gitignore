@@ -1,0 +1,11 @@
+# Godot 缓存
+.godot/
+*.uid
+
+# 下载的原始素材包（太大/含版权）
+assets/downloaded/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini

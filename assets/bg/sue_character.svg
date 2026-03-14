@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="220" viewBox="0 0 160 220">
+
+  <!-- ══ 身体 ══ -->
+  <ellipse cx="80" cy="168" rx="34" ry="42" fill="#FFD54F"/>
+  <!-- 裙摆 -->
+  <path d="M46,175 Q36,210 42,220 L118,220 Q124,210 114,175 Z" fill="#FFD54F"/>
+  <!-- 裙子橘子图案 -->
+  <circle cx="80" cy="178" r="12" fill="#FF8F00" opacity="0.85"/>
+  <ellipse cx="80" cy="168" rx="4" ry="5" fill="#4CAF50"/>
+  <line x1="76" y1="170" x2="72" y2="164" stroke="#4CAF50" stroke-width="1.5"/>
+  <circle cx="80" cy="178" r="8" fill="#FFA726" opacity="0.9"/>
+  <!-- 白领子 -->
+  <path d="M58,142 Q80,155 102,142 L98,152 Q80,162 62,152 Z" fill="white"/>
+
+  <!-- ══ 脖子 ══ -->
+  <rect x="72" y="128" width="16" height="18" fill="#FFCCAA" rx="4"/>
+
+  <!-- ══ 手臂 ══ -->
+  <!-- 左臂 -->
+  <ellipse cx="42" cy="162" rx="11" ry="20" fill="#FFD54F" transform="rotate(15,42,162)"/>
+  <ellipse cx="36" cy="178" rx="8" ry="8" fill="#FFCCAA"/>
+  <!-- 右臂 -->
+  <ellipse cx="118" cy="162" rx="11" ry="20" fill="#FFD54F" transform="rotate(-15,118,162)"/>
+  <ellipse cx="124" cy="178" rx="8" ry="8" fill="#FFCCAA"/>
+
+  <!-- ══ 腿 ══ -->
+  <rect x="60" y="214" width="14" height="6" fill="#FFCCAA" rx="3"/>
+  <rect x="86" y="214" width="14" height="6" fill="#FFCCAA" rx="3"/>
+
+  <!-- ══ 头部 ══ -->
+  <circle cx="80" cy="88" r="46" fill="#FFCCAA"/>
+
+  <!-- ══ 头发（粉色，先画后脑） ══ -->
+  <!-- 后脑头发 -->
+  <ellipse cx="80" cy="78" rx="46" ry="40" fill="#FF80AB"/>
+  <!-- 额头头发遮住 -->
+  <ellipse cx="80" cy="70" rx="38" ry="26" fill="#FF4081"/>
+
+  <!-- ══ 双丸子（最显眼特征）══ -->
+  <!-- 左丸子 -->
+  <circle cx="42" cy="58" r="22" fill="#FF80AB"/>
+  <circle cx="42" cy="58" r="18" fill="#FF4081"/>
+  <!-- 左丸子高光 -->
+  <ellipse cx="36" cy="50" rx="6" ry="4" fill="#FF80AB" opacity="0.7" transform="rotate(-20,36,50)"/>
+  <!-- 右丸子 -->
+  <circle cx="118" cy="58" r="22" fill="#FF80AB"/>
+  <circle cx="118" cy="58" r="18" fill="#FF4081"/>
+  <!-- 右丸子高光 -->
+  <ellipse cx="112" cy="50" rx="6" ry="4" fill="#FF80AB" opacity="0.7" transform="rotate(-20,112,50)"/>
+
+  <!-- 丸子发结 -->
+  <ellipse cx="42"  cy="76" rx="8" ry="5" fill="#FF1744"/>
+  <ellipse cx="118" cy="76" rx="8" ry="5" fill="#FF1744"/>
+
+  <!-- ══ 皇冠装饰 ══ -->
+  <polygon points="80,30 86,44 94,36 90,50 70,50 66,36 74,44" fill="#FFD700"/>
+  <circle cx="80" cy="34" r="3" fill="white"/>
+  <circle cx="88" cy="40" r="2" fill="#FF80AB"/>
+  <circle cx="72" cy="40" r="2" fill="#FF80AB"/>
+
+  <!-- ══ 脸部 ══ -->
+  <!-- 脸底色（盖住头发下边缘） -->
+  <ellipse cx="80" cy="98" rx="34" ry="32" fill="#FFCCAA"/>
+
+  <!-- 眉毛 -->
+  <path d="M60,82 Q66,78 72,82" stroke="#CC7755" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M88,82 Q94,78 100,82" stroke="#CC7755" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- 眼白 -->
+  <ellipse cx="66" cy="95" rx="10" ry="11" fill="white"/>
+  <ellipse cx="94" cy="95" rx="10" ry="11" fill="white"/>
+  <!-- 紫色眼珠 -->
+  <ellipse cx="66" cy="97" rx="7"  ry="8"  fill="#7B1FA2"/>
+  <ellipse cx="94" cy="97" rx="7"  ry="8"  fill="#7B1FA2"/>
+  <!-- 深紫色瞳孔 -->
+  <ellipse cx="66" cy="98" rx="4"  ry="5"  fill="#4A148C"/>
+  <ellipse cx="94" cy="98" rx="4"  ry="5"  fill="#4A148C"/>
+  <!-- 眼睛高光 -->
+  <circle cx="69"  cy="93" r="2.5" fill="white"/>
+  <circle cx="97"  cy="93" r="2.5" fill="white"/>
+  <circle cx="63"  cy="99" r="1.2" fill="white" opacity="0.8"/>
+  <circle cx="91"  cy="99" r="1.2" fill="white" opacity="0.8"/>
+  <!-- 睫毛 -->
+  <path d="M56,90 Q58,84 62,88" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M76,88 Q78,82 80,88" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M104,90 Q102,84 98,88" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 腮红 -->
+  <ellipse cx="56"  cy="107" rx="10" ry="6" fill="#FF8FAB" opacity="0.55"/>
+  <ellipse cx="104" cy="107" rx="10" ry="6" fill="#FF8FAB" opacity="0.55"/>
+
+  <!-- 鼻子 -->
+  <circle cx="80" cy="108" r="2" fill="#CC8866" opacity="0.6"/>
+
+  <!-- 嘴 -->
+  <path d="M70,116 Q80,124 90,116" stroke="#CC5577" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M73,116 Q80,120 87,116" fill="#FF8FAB" opacity="0.4"/>
+
+</svg>

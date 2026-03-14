@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+  <!-- Stove body -->
+  <rect x="5" y="20" width="110" height="55" fill="#FFBE6A" rx="8"/>
+  <rect x="5" y="20" width="110" height="10" fill="#E8A040" rx="4"/>
+  <!-- Burner ring -->
+  <ellipse cx="60" cy="30" rx="42" ry="10" fill="#C97A10"/>
+  <ellipse cx="60" cy="30" rx="34" ry="8" fill="#B06000"/>
+  <ellipse cx="60" cy="30" rx="26" ry="6" fill="#8B4500"/>
+  <!-- Knob -->
+  <circle cx="20" cy="60" r="8" fill="#E8A040"/>
+  <circle cx="20" cy="60" r="5" fill="#FFD080"/>
+  <circle cx="100" cy="60" r="8" fill="#E8A040"/>
+  <circle cx="100" cy="60" r="5" fill="#FFD080"/>
+</svg>

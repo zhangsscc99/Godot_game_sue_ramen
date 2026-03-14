@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="105" viewBox="0 0 110 105">
+
+  <!-- ═══ 锅耳朵（两侧手柄）═══ -->
+  <ellipse cx="12"  cy="54" rx="12" ry="7" fill="#E65100"/>
+  <ellipse cx="12"  cy="54" rx="9"  ry="5" fill="#FF8F00"/>
+  <ellipse cx="98"  cy="54" rx="12" ry="7" fill="#E65100"/>
+  <ellipse cx="98"  cy="54" rx="9"  ry="5" fill="#FF8F00"/>
+
+  <!-- ═══ 锅身主体 ═══ -->
+  <!-- 锅身阴影 -->
+  <ellipse cx="56" cy="88" rx="42" ry="8" fill="#E65100" opacity="0.3"/>
+  <!-- 锅身 -->
+  <path d="M16,40 Q14,85 56,90 Q98,85 96,40 Z" fill="#FF8F00"/>
+  <!-- 锅身高光渐变 -->
+  <path d="M22,42 Q20,80 56,85 Q60,85 56,85 Q20,80 22,42Z" fill="#FFA000" opacity="0.5"/>
+  <!-- 锅身左侧亮面 -->
+  <path d="M22,42 Q22,68 30,80 Q24,68 24,42Z" fill="#FFB300" opacity="0.6"/>
+
+  <!-- ═══ 锅口椭圆 ═══ -->
+  <ellipse cx="56" cy="40" rx="40" ry="13" fill="#E65100"/>
+  <ellipse cx="56" cy="38" rx="40" ry="13" fill="#FF6D00"/>
+  <ellipse cx="56" cy="37" rx="38" ry="11" fill="#FF8F00"/>
+  <!-- 锅口内部阴影 -->
+  <ellipse cx="56" cy="36" rx="34" ry="9"  fill="#E65100" opacity="0.4"/>
+  <!-- 锅内液面（空锅状态，浅色） -->
+  <ellipse cx="56" cy="36" rx="30" ry="7"  fill="#BF360C" opacity="0.5"/>
+
+  <!-- ═══ 锅底圆圈装饰 ═══ -->
+  <circle cx="56" cy="82" r="6" fill="#E65100" opacity="0.4"/>
+  <circle cx="56" cy="82" r="3" fill="#FF8F00" opacity="0.6"/>
+
+</svg>

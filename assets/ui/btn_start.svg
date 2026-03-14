@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="60" viewBox="0 0 160 60">
+  <rect width="160" height="60" fill="#FF6699" rx="16"/>
+  <rect x="4" y="4" width="152" height="52" fill="#FF85AD" rx="12"/>
+  <text x="80" y="38" font-family="Arial" font-size="22" font-weight="bold" fill="white" text-anchor="middle">开始游戏</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="70" viewBox="0 0 200 70">
+  <rect width="200" height="70" fill="#FF9EC0" rx="12"/>
+  <rect x="3" y="3" width="194" height="64" fill="#FFD6EC" rx="10"/>
+  <!-- Heart -->
+  <text x="20" y="46" font-size="28" fill="#FF6699">♥</text>
+  <!-- Score label -->
+  <text x="50" y="28" font-family="Arial" font-size="13" fill="#CC3366" font-weight="bold">得分</text>
+  <text x="50" y="52" font-family="Arial" font-size="24" fill="#CC0044" font-weight="bold" id="score">0</text>
+</svg>
