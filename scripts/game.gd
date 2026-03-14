@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		time_left = 0.0
 		_end_game()
 
-	time_label.text = "⏱ %d" % int(time_left)
+	time_label.text = "%d" % int(time_left)
 
 	# 颜色警告
 	if time_left < 15.0:
@@ -85,14 +85,14 @@ func _on_pot_done(pot: Node2D, pts: int) -> void:
 	combo += 1
 	var total := pts + (combo - 1) * 100
 	score += total
-	score_label.text = "♥ %d" % score
+	score_label.text = "%d" % score
 	combo_label.text = "连击 x%d" % combo if combo > 1 else ""
 	_show_msg("完成！+%d 分" % total, Color(0.2, 0.9, 0.3))
 
 func _on_pot_burnt(_pot: Node2D) -> void:
 	combo = 0
 	score = max(0, score - PENALTY)
-	score_label.text = "♥ %d" % score
+	score_label.text = "%d" % score
 	combo_label.text = ""
 	_show_msg("烧糊了！-%d 分" % PENALTY, Color(1.0, 0.3, 0.1))
 
