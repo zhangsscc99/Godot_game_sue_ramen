@@ -18,7 +18,7 @@
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1")
 
-; ── 背景：stretch_mode=0 = 拉伸填满，不平铺 ──
+; 背景拉伸填满（stretch_mode=0）
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,13 +27,11 @@ offset_bottom = 600.0
 texture = ExtResource("4")
 stretch_mode = 0
 
-; ── 注：Sue角色已在bg_menu.png里，不额外添加 ──
-
+; ════════════ 4个锅（烹饪台，加大 scale=1.7）════════════
 [node name="Pots" type="Node2D" parent="."]
 
-; ════ 锅1 (x=210) ════
 [node name="Pot1" type="Node2D" parent="Pots"]
-position = Vector2(210, 390)
+position = Vector2(210, 400)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -41,49 +39,48 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot1"]
 texture = ExtResource("7")
-scale = Vector2(1.3, 1.3)
+scale = Vector2(1.7, 1.7)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot1"]
-position = Vector2(0, 46)
+position = Vector2(0, 56)
 texture = ExtResource("6")
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="Highlight" type="Panel" parent="Pots/Pot1"]
-offset_left = -58.0
-offset_top = -38.0
-offset_right = 58.0
-offset_bottom = 38.0
-modulate = Color(1, 1, 0, 0.3)
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+modulate = Color(1, 1, 0, 0.28)
 visible = false
 
 [node name="StatusLabel" type="Label" parent="Pots/Pot1"]
-offset_left = -64.0
-offset_top = -56.0
-offset_right = 64.0
-offset_bottom = -38.0
+offset_left = -72.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = -48.0
 text = "空锅"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 theme_override_colors/font_color = Color(0.5, 0.1, 0.35, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="Pots/Pot1"]
-offset_left = -50.0
-offset_top = 40.0
-offset_right = 50.0
-offset_bottom = 52.0
+offset_left = -58.0
+offset_top = 52.0
+offset_right = 58.0
+offset_bottom = 65.0
 visible = false
 value = 0.0
 
 [node name="ToppingDisplay" type="HBoxContainer" parent="Pots/Pot1"]
-offset_left = -30.0
-offset_top = 53.0
-offset_right = 30.0
-offset_bottom = 73.0
+offset_left = -36.0
+offset_top = 66.0
+offset_right = 36.0
+offset_bottom = 86.0
 
-; ════ 锅2 (x=360) ════
 [node name="Pot2" type="Node2D" parent="Pots"]
-position = Vector2(360, 390)
+position = Vector2(365, 400)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -91,49 +88,48 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot2"]
 texture = ExtResource("7")
-scale = Vector2(1.3, 1.3)
+scale = Vector2(1.7, 1.7)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot2"]
-position = Vector2(0, 46)
+position = Vector2(0, 56)
 texture = ExtResource("6")
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="Highlight" type="Panel" parent="Pots/Pot2"]
-offset_left = -58.0
-offset_top = -38.0
-offset_right = 58.0
-offset_bottom = 38.0
-modulate = Color(1, 1, 0, 0.3)
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+modulate = Color(1, 1, 0, 0.28)
 visible = false
 
 [node name="StatusLabel" type="Label" parent="Pots/Pot2"]
-offset_left = -64.0
-offset_top = -56.0
-offset_right = 64.0
-offset_bottom = -38.0
+offset_left = -72.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = -48.0
 text = "空锅"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 theme_override_colors/font_color = Color(0.5, 0.1, 0.35, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="Pots/Pot2"]
-offset_left = -50.0
-offset_top = 40.0
-offset_right = 50.0
-offset_bottom = 52.0
+offset_left = -58.0
+offset_top = 52.0
+offset_right = 58.0
+offset_bottom = 65.0
 visible = false
 value = 0.0
 
 [node name="ToppingDisplay" type="HBoxContainer" parent="Pots/Pot2"]
-offset_left = -30.0
-offset_top = 53.0
-offset_right = 30.0
-offset_bottom = 73.0
+offset_left = -36.0
+offset_top = 66.0
+offset_right = 36.0
+offset_bottom = 86.0
 
-; ════ 锅3 (x=510) ════
 [node name="Pot3" type="Node2D" parent="Pots"]
-position = Vector2(510, 390)
+position = Vector2(520, 400)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -141,49 +137,48 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot3"]
 texture = ExtResource("7")
-scale = Vector2(1.3, 1.3)
+scale = Vector2(1.7, 1.7)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot3"]
-position = Vector2(0, 46)
+position = Vector2(0, 56)
 texture = ExtResource("6")
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="Highlight" type="Panel" parent="Pots/Pot3"]
-offset_left = -58.0
-offset_top = -38.0
-offset_right = 58.0
-offset_bottom = 38.0
-modulate = Color(1, 1, 0, 0.3)
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+modulate = Color(1, 1, 0, 0.28)
 visible = false
 
 [node name="StatusLabel" type="Label" parent="Pots/Pot3"]
-offset_left = -64.0
-offset_top = -56.0
-offset_right = 64.0
-offset_bottom = -38.0
+offset_left = -72.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = -48.0
 text = "空锅"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 theme_override_colors/font_color = Color(0.5, 0.1, 0.35, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="Pots/Pot3"]
-offset_left = -50.0
-offset_top = 40.0
-offset_right = 50.0
-offset_bottom = 52.0
+offset_left = -58.0
+offset_top = 52.0
+offset_right = 58.0
+offset_bottom = 65.0
 visible = false
 value = 0.0
 
 [node name="ToppingDisplay" type="HBoxContainer" parent="Pots/Pot3"]
-offset_left = -30.0
-offset_top = 53.0
-offset_right = 30.0
-offset_bottom = 73.0
+offset_left = -36.0
+offset_top = 66.0
+offset_right = 36.0
+offset_bottom = 86.0
 
-; ════ 锅4 (x=660) ════
 [node name="Pot4" type="Node2D" parent="Pots"]
-position = Vector2(660, 390)
+position = Vector2(675, 400)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -191,152 +186,153 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot4"]
 texture = ExtResource("7")
-scale = Vector2(1.3, 1.3)
+scale = Vector2(1.7, 1.7)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot4"]
-position = Vector2(0, 46)
+position = Vector2(0, 56)
 texture = ExtResource("6")
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="Highlight" type="Panel" parent="Pots/Pot4"]
-offset_left = -58.0
-offset_top = -38.0
-offset_right = 58.0
-offset_bottom = 38.0
-modulate = Color(1, 1, 0, 0.3)
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+modulate = Color(1, 1, 0, 0.28)
 visible = false
 
 [node name="StatusLabel" type="Label" parent="Pots/Pot4"]
-offset_left = -64.0
-offset_top = -56.0
-offset_right = 64.0
-offset_bottom = -38.0
+offset_left = -72.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = -48.0
 text = "空锅"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 theme_override_colors/font_color = Color(0.5, 0.1, 0.35, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="Pots/Pot4"]
-offset_left = -50.0
-offset_top = 40.0
-offset_right = 50.0
-offset_bottom = 52.0
+offset_left = -58.0
+offset_top = 52.0
+offset_right = 58.0
+offset_bottom = 65.0
 visible = false
 value = 0.0
 
 [node name="ToppingDisplay" type="HBoxContainer" parent="Pots/Pot4"]
-offset_left = -30.0
-offset_top = 53.0
-offset_right = 30.0
-offset_bottom = 73.0
+offset_left = -36.0
+offset_top = 66.0
+offset_right = 36.0
+offset_bottom = 86.0
 
 ; ══════════════ UI 层 ══════════════
 [node name="UI" type="CanvasLayer" parent="."]
 
-; ── 右上角得分框（仿原版粉框黑底数字）──
+; ── 右上角得分框 ──
 [node name="ScoreBG" type="ColorRect" parent="UI"]
-offset_left = 640.0
-offset_top = 50.0
+offset_left = 638.0
+offset_top = 48.0
 offset_right = 800.0
-offset_bottom = 150.0
-color = Color(1.0, 0.35, 0.58, 1.0)
+offset_bottom = 175.0
+color = Color(1.0, 0.32, 0.55, 1.0)
 
 [node name="ScoreBGInner" type="ColorRect" parent="UI"]
-offset_left = 648.0
-offset_top = 72.0
+offset_left = 646.0
+offset_top = 74.0
 offset_right = 792.0
-offset_bottom = 142.0
-color = Color(0.05, 0.02, 0.1, 1.0)
+offset_bottom = 165.0
+color = Color(0.04, 0.02, 0.1, 1.0)
 
 [node name="ScoreTitleLabel" type="Label" parent="UI"]
-offset_left = 640.0
-offset_top = 52.0
+offset_left = 638.0
+offset_top = 50.0
 offset_right = 800.0
-offset_bottom = 74.0
+offset_bottom = 76.0
 text = "점수  得分"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 15
 theme_override_colors/font_color = Color(1.0, 1.0, 1.0, 1)
 
 [node name="ScoreLabel" type="Label" parent="UI"]
-offset_left = 640.0
+offset_left = 638.0
 offset_top = 76.0
 offset_right = 800.0
-offset_bottom = 144.0
+offset_bottom = 166.0
 text = "0"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 48
 theme_override_colors/font_color = Color(1.0, 0.92, 0.2, 1)
 
-; ── 计时器 ──
+; ── 计时器框 ──
 [node name="TimeBG" type="ColorRect" parent="UI"]
-offset_left = 316.0
-offset_top = 50.0
-offset_right = 480.0
+offset_left = 322.0
+offset_top = 48.0
+offset_right = 490.0
 offset_bottom = 100.0
 color = Color(1.0, 0.85, 0.92, 0.9)
 
 [node name="TimeTitleLabel" type="Label" parent="UI"]
-offset_left = 316.0
-offset_top = 52.0
-offset_right = 480.0
-offset_bottom = 72.0
+offset_left = 322.0
+offset_top = 50.0
+offset_right = 490.0
+offset_bottom = 70.0
 text = "Time"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 13
-theme_override_colors/font_color = Color(0.6, 0.15, 0.35, 1)
+theme_override_colors/font_color = Color(0.55, 0.12, 0.32, 1)
 
 [node name="TimeLabel" type="Label" parent="UI"]
-offset_left = 316.0
-offset_top = 70.0
-offset_right = 480.0
+offset_left = 322.0
+offset_top = 68.0
+offset_right = 490.0
 offset_bottom = 102.0
 text = "90"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(0.7, 0.1, 0.3, 1)
 
-; ── 连击 & 消息 ──
+; ── 连击 ──
 [node name="ComboLabel" type="Label" parent="UI"]
 offset_left = 160.0
-offset_top = 52.0
-offset_right = 316.0
-offset_bottom = 76.0
+offset_top = 48.0
+offset_right = 322.0
+offset_bottom = 72.0
 text = ""
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 14
 theme_override_colors/font_color = Color(1.0, 0.85, 0.1, 1)
 
+; ── 消息提示 ──
 [node name="MsgLabel" type="Label" parent="UI"]
-offset_left = 220.0
-offset_top = 210.0
-offset_right = 580.0
-offset_bottom = 252.0
+offset_left = 180.0
+offset_top = 230.0
+offset_right = 620.0
+offset_bottom = 278.0
 text = ""
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 26
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 
-; ════ 货架食材区 ════
+; ════ 货架食材区（仿原版大尺寸）════
 [node name="ShelfBG" type="ColorRect" parent="UI"]
 offset_left = 158.0
-offset_top = 48.0
-offset_right = 480.0
-offset_bottom = 150.0
-color = Color(1.0, 0.78, 0.9, 0.5)
+offset_top = 44.0
+offset_right = 636.0
+offset_bottom = 188.0
+color = Color(1.0, 0.78, 0.9, 0.45)
 
-; 食材按钮（ignore_texture_size=true 强制缩小到指定尺寸）
+; 6个食材按钮，每个 72×138，铺满货架
 [node name="IngredientBar" type="HBoxContainer" parent="UI"]
 offset_left = 162.0
-offset_top = 52.0
-offset_right = 476.0
-offset_bottom = 144.0
+offset_top = 48.0
+offset_right = 632.0
+offset_bottom = 184.0
 alignment = 1
-theme_override_constants/separation = 2
+theme_override_constants/separation = 4
 
 [node name="WaterBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("10")
@@ -345,7 +341,7 @@ ingredient_id = "water"
 icon_texture = ExtResource("10")
 
 [node name="RamenBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("11")
@@ -354,7 +350,7 @@ ingredient_id = "ramen"
 icon_texture = ExtResource("11")
 
 [node name="SeasoningBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("12")
@@ -363,7 +359,7 @@ ingredient_id = "seasoning"
 icon_texture = ExtResource("12")
 
 [node name="EggBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("13")
@@ -372,7 +368,7 @@ ingredient_id = "egg"
 icon_texture = ExtResource("13")
 
 [node name="OnionBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("14")
@@ -381,7 +377,7 @@ ingredient_id = "onion"
 icon_texture = ExtResource("14")
 
 [node name="ServeBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(60, 86)
+custom_minimum_size = Vector2(72, 130)
 ignore_texture_size = true
 stretch_mode = 5
 texture_normal = ExtResource("15")
@@ -392,50 +388,50 @@ icon_texture = ExtResource("15")
 ; 食材标签
 [node name="IngredientLabels" type="HBoxContainer" parent="UI"]
 offset_left = 162.0
-offset_top = 140.0
-offset_right = 476.0
-offset_bottom = 158.0
+offset_top = 180.0
+offset_right = 632.0
+offset_bottom = 198.0
 alignment = 1
-theme_override_constants/separation = 2
+theme_override_constants/separation = 4
 
 [node name="L1" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "水"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L2" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "面"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L3" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "调料"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L4" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "鸡蛋"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L5" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "葱"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L6" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(72, 0)
 text = "完成"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
