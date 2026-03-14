@@ -4,7 +4,6 @@
 [ext_resource type="Script"    path="res://scripts/pot.gd"               id="2"]
 [ext_resource type="Script"    path="res://scripts/ingredient_button.gd" id="3"]
 [ext_resource type="Texture2D" path="res://assets/sue_original/bg_menu.png"    id="4"]
-[ext_resource type="Texture2D" path="res://assets/sue_original/sue_stand.png"  id="5"]
 [ext_resource type="Texture2D" path="res://assets/bg/flame.svg"                id="6"]
 [ext_resource type="Texture2D" path="res://assets/sue_original/pot_empty.png"  id="7"]
 [ext_resource type="Texture2D" path="res://assets/sue_original/pot_lid.png"    id="8"]
@@ -19,27 +18,22 @@
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1")
 
-; ── 背景铺满 800×600 ──
+; ── 背景：stretch_mode=0 = 拉伸填满，不平铺 ──
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 800.0
 offset_bottom = 600.0
 texture = ExtResource("4")
-stretch_mode = 1
+stretch_mode = 0
 
-; ── 阿Sue 角色（左侧，站在台前）──
-[node name="SueCharacter" type="Sprite2D" parent="."]
-position = Vector2(88, 400)
-texture = ExtResource("5")
-scale = Vector2(0.48, 0.48)
+; ── 注：Sue角色已在bg_menu.png里，不额外添加 ──
 
-; ════════ 4个锅（摆在烹饪台上）════════
 [node name="Pots" type="Node2D" parent="."]
 
-; 锅1
+; ════ 锅1 (x=210) ════
 [node name="Pot1" type="Node2D" parent="Pots"]
-position = Vector2(230, 375)
+position = Vector2(210, 390)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -47,10 +41,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot1"]
 texture = ExtResource("7")
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.3, 1.3)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot1"]
-position = Vector2(0, 44)
+position = Vector2(0, 46)
 texture = ExtResource("6")
 scale = Vector2(0.4, 0.4)
 visible = false
@@ -87,9 +81,9 @@ offset_top = 53.0
 offset_right = 30.0
 offset_bottom = 73.0
 
-; 锅2
+; ════ 锅2 (x=360) ════
 [node name="Pot2" type="Node2D" parent="Pots"]
-position = Vector2(370, 375)
+position = Vector2(360, 390)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -97,10 +91,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot2"]
 texture = ExtResource("7")
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.3, 1.3)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot2"]
-position = Vector2(0, 44)
+position = Vector2(0, 46)
 texture = ExtResource("6")
 scale = Vector2(0.4, 0.4)
 visible = false
@@ -137,9 +131,9 @@ offset_top = 53.0
 offset_right = 30.0
 offset_bottom = 73.0
 
-; 锅3
+; ════ 锅3 (x=510) ════
 [node name="Pot3" type="Node2D" parent="Pots"]
-position = Vector2(510, 375)
+position = Vector2(510, 390)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -147,10 +141,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot3"]
 texture = ExtResource("7")
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.3, 1.3)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot3"]
-position = Vector2(0, 44)
+position = Vector2(0, 46)
 texture = ExtResource("6")
 scale = Vector2(0.4, 0.4)
 visible = false
@@ -187,9 +181,9 @@ offset_top = 53.0
 offset_right = 30.0
 offset_bottom = 73.0
 
-; 锅4
+; ════ 锅4 (x=660) ════
 [node name="Pot4" type="Node2D" parent="Pots"]
-position = Vector2(650, 375)
+position = Vector2(660, 390)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -197,10 +191,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot4"]
 texture = ExtResource("7")
-scale = Vector2(1.25, 1.25)
+scale = Vector2(1.3, 1.3)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot4"]
-position = Vector2(0, 44)
+position = Vector2(0, 46)
 texture = ExtResource("6")
 scale = Vector2(0.4, 0.4)
 visible = false
@@ -240,75 +234,75 @@ offset_bottom = 73.0
 ; ══════════════ UI 层 ══════════════
 [node name="UI" type="CanvasLayer" parent="."]
 
-; ── 右上角得分面板（仿原版粉色框）──
+; ── 右上角得分框（仿原版粉框黑底数字）──
 [node name="ScoreBG" type="ColorRect" parent="UI"]
-offset_left = 638.0
-offset_top = 55.0
-offset_right = 798.0
-offset_bottom = 145.0
-color = Color(1.0, 0.35, 0.58, 0.92)
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 800.0
+offset_bottom = 150.0
+color = Color(1.0, 0.35, 0.58, 1.0)
 
 [node name="ScoreBGInner" type="ColorRect" parent="UI"]
-offset_left = 643.0
-offset_top = 60.0
-offset_right = 793.0
-offset_bottom = 140.0
-color = Color(0.1, 0.05, 0.15, 0.88)
+offset_left = 648.0
+offset_top = 72.0
+offset_right = 792.0
+offset_bottom = 142.0
+color = Color(0.05, 0.02, 0.1, 1.0)
 
 [node name="ScoreTitleLabel" type="Label" parent="UI"]
-offset_left = 638.0
-offset_top = 62.0
-offset_right = 798.0
-offset_bottom = 86.0
+offset_left = 640.0
+offset_top = 52.0
+offset_right = 800.0
+offset_bottom = 74.0
 text = "점수  得分"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 13
-theme_override_colors/font_color = Color(1.0, 0.6, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1.0, 1.0, 1.0, 1)
 
 [node name="ScoreLabel" type="Label" parent="UI"]
-offset_left = 638.0
-offset_top = 86.0
-offset_right = 798.0
-offset_bottom = 142.0
+offset_left = 640.0
+offset_top = 76.0
+offset_right = 800.0
+offset_bottom = 144.0
 text = "0"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 38
-theme_override_colors/font_color = Color(1.0, 0.92, 0.3, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_colors/font_color = Color(1.0, 0.92, 0.2, 1)
 
-; ── 计时器（仿原版 Time 框）──
+; ── 计时器 ──
 [node name="TimeBG" type="ColorRect" parent="UI"]
-offset_left = 310.0
-offset_top = 55.0
+offset_left = 316.0
+offset_top = 50.0
 offset_right = 480.0
 offset_bottom = 100.0
-color = Color(1.0, 0.85, 0.92, 0.88)
+color = Color(1.0, 0.85, 0.92, 0.9)
 
 [node name="TimeTitleLabel" type="Label" parent="UI"]
-offset_left = 310.0
-offset_top = 57.0
+offset_left = 316.0
+offset_top = 52.0
 offset_right = 480.0
-offset_bottom = 76.0
+offset_bottom = 72.0
 text = "Time"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.6, 0.2, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.6, 0.15, 0.35, 1)
 
 [node name="TimeLabel" type="Label" parent="UI"]
-offset_left = 310.0
-offset_top = 74.0
+offset_left = 316.0
+offset_top = 70.0
 offset_right = 480.0
 offset_bottom = 102.0
 text = "90"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
 theme_override_colors/font_color = Color(0.7, 0.1, 0.3, 1)
 
 ; ── 连击 & 消息 ──
 [node name="ComboLabel" type="Label" parent="UI"]
 offset_left = 160.0
-offset_top = 56.0
-offset_right = 310.0
-offset_bottom = 80.0
+offset_top = 52.0
+offset_right = 316.0
+offset_bottom = 76.0
 text = ""
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 14
@@ -324,112 +318,123 @@ horizontal_alignment = 1
 theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 
-; ════ 货架食材区（顶部货架，仿原版摆放）════
-; 食材背景板
+; ════ 货架食材区 ════
 [node name="ShelfBG" type="ColorRect" parent="UI"]
-offset_left = 155.0
-offset_top = 52.0
+offset_left = 158.0
+offset_top = 48.0
 offset_right = 480.0
-offset_bottom = 148.0
-color = Color(1.0, 0.75, 0.88, 0.55)
+offset_bottom = 150.0
+color = Color(1.0, 0.78, 0.9, 0.5)
 
-; 食材按钮（横排放在货架上）
+; 食材按钮（ignore_texture_size=true 强制缩小到指定尺寸）
 [node name="IngredientBar" type="HBoxContainer" parent="UI"]
-offset_left = 160.0
-offset_top = 58.0
+offset_left = 162.0
+offset_top = 52.0
 offset_right = 476.0
-offset_bottom = 142.0
+offset_bottom = 144.0
 alignment = 1
-theme_override_constants/separation = 4
+theme_override_constants/separation = 2
 
 [node name="WaterBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("10")
 script = ExtResource("3")
 ingredient_id = "water"
 icon_texture = ExtResource("10")
 
 [node name="RamenBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("11")
 script = ExtResource("3")
 ingredient_id = "ramen"
 icon_texture = ExtResource("11")
 
 [node name="SeasoningBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("12")
 script = ExtResource("3")
 ingredient_id = "seasoning"
 icon_texture = ExtResource("12")
 
 [node name="EggBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("13")
 script = ExtResource("3")
 ingredient_id = "egg"
 icon_texture = ExtResource("13")
 
 [node name="OnionBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("14")
 script = ExtResource("3")
 ingredient_id = "onion"
 icon_texture = ExtResource("14")
 
 [node name="ServeBtn" type="TextureButton" parent="UI/IngredientBar"]
-custom_minimum_size = Vector2(62, 78)
+custom_minimum_size = Vector2(60, 86)
+ignore_texture_size = true
+stretch_mode = 5
 texture_normal = ExtResource("15")
 script = ExtResource("3")
 ingredient_id = "serve"
 icon_texture = ExtResource("15")
 
-; 食材标签（货架下方小字）
+; 食材标签
 [node name="IngredientLabels" type="HBoxContainer" parent="UI"]
-offset_left = 160.0
-offset_top = 138.0
+offset_left = 162.0
+offset_top = 140.0
 offset_right = 476.0
-offset_bottom = 156.0
+offset_bottom = 158.0
 alignment = 1
-theme_override_constants/separation = 4
+theme_override_constants/separation = 2
 
 [node name="L1" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "水"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L2" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "面"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L3" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "调料"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L4" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "鸡蛋"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L5" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "葱"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.5, 0.1, 0.3, 1)
 
 [node name="L6" type="Label" parent="UI/IngredientLabels"]
-custom_minimum_size = Vector2(62, 0)
+custom_minimum_size = Vector2(60, 0)
 text = "完成"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
