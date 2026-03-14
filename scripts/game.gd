@@ -54,10 +54,9 @@ func start_drag(ingredient: String, icon_texture: Texture2D) -> void:
 	dragging_ingredient = ingredient
 	drag_icon = Sprite2D.new()
 	drag_icon.texture = icon_texture
-	# 限制拖拽图标最大尺寸为 80×80
-	var tex_size := icon_texture.get_size()
-	var max_size := 80.0
-	var scale_factor := min(max_size / tex_size.x, max_size / tex_size.y)
+	var tex_size: Vector2 = icon_texture.get_size()
+	var max_size: float = 80.0
+	var scale_factor: float = min(max_size / tex_size.x, max_size / tex_size.y)
 	drag_icon.scale = Vector2(scale_factor, scale_factor)
 	drag_icon.z_index = 100
 	add_child(drag_icon)
@@ -69,15 +68,14 @@ func _input(event: InputEvent) -> void:
 			_try_drop_on_pot()
 
 func _try_drop_on_pot() -> void:
-	var mouse_pos := get_global_mouse_position()
-	for pot in pots_container.get_children():
-		# 检测区扩大到 160×120，更容易拖进去
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	for pot: Node2D in pots_container.get_children():
 		var pot_rect := Rect2(pot.global_position - Vector2(80, 60), Vector2(160, 120))
 		if pot_rect.has_point(mouse_pos):
-			var accepted: bool = pot.add_ingredient(dragging_ingredient)
+			var accepted: bool = pot.call("add_ingredient", dragging_ingredient)
 			if accepted:
 				_show_msg("+食材：" + _ingredient_name(dragging_ingredient))
-			break  # 只投入一个锅就停止
+			break
 	_end_drag()
 
 func _end_drag() -> void:
