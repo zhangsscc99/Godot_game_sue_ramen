@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://game_over"]
+[gd_scene load_steps=3 format=3 uid="uid://game_over"]
 
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="1"]
+[ext_resource type="Script"    path="res://scripts/game_over.gd"           id="1"]
+[ext_resource type="Texture2D" path="res://assets/sue_original/sue_cook.png" id="2"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1")
@@ -12,61 +13,72 @@ offset_right = 800.0
 offset_bottom = 600.0
 color = Color(1.0, 0.88, 0.94, 1)
 
+[node name="SueCook" type="TextureRect" parent="UI"]
+offset_left = 260.0
+offset_top = 60.0
+offset_right = 540.0
+offset_bottom = 380.0
+texture = ExtResource("2")
+stretch_mode = 5
+
 [node name="TitleLabel" type="Label" parent="UI"]
-offset_left = 200.0
-offset_top = 100.0
-offset_right = 600.0
-offset_bottom = 160.0
-text = "游戏结束！"
+offset_left = 0.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 150.0
+text = "게임 끝!"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 48
-theme_override_colors/font_color = Color(0.87, 0.2, 0.5, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_colors/font_color = Color(0.87, 0.15, 0.45, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.7, 0.85, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 
 [node name="ScoreTitle" type="Label" parent="UI"]
-offset_left = 200.0
-offset_top = 180.0
-offset_right = 600.0
-offset_bottom = 220.0
-text = "最终得分"
+offset_left = 0.0
+offset_top = 390.0
+offset_right = 800.0
+offset_bottom = 430.0
+text = "최종 점수"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.6, 0.3, 0.5, 1)
+theme_override_colors/font_color = Color(0.55, 0.25, 0.45, 1)
 
 [node name="ScoreLabel" type="Label" parent="UI"]
-offset_left = 200.0
-offset_top = 220.0
-offset_right = 600.0
-offset_bottom = 290.0
+offset_left = 0.0
+offset_top = 428.0
+offset_right = 800.0
+offset_bottom = 500.0
 text = "0"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 60
-theme_override_colors/font_color = Color(0.87, 0.2, 0.5, 1)
+theme_override_font_sizes/font_size = 58
+theme_override_colors/font_color = Color(0.87, 0.15, 0.45, 1)
 
 [node name="RankLabel" type="Label" parent="UI"]
-offset_left = 200.0
-offset_top = 295.0
-offset_right = 600.0
-offset_bottom = 340.0
+offset_left = 0.0
+offset_top = 500.0
+offset_right = 800.0
+offset_bottom = 538.0
 text = ""
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(1.0, 0.7, 0.0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1.0, 0.65, 0.0, 1)
 
 [node name="RetryButton" type="Button" parent="UI"]
-offset_left = 220.0
-offset_top = 380.0
-offset_right = 380.0
-offset_bottom = 440.0
-text = "再来一局"
-theme_override_font_sizes/font_size = 24
+offset_left = 190.0
+offset_top = 548.0
+offset_right = 370.0
+offset_bottom = 594.0
+text = "다시 하기"
+theme_override_font_sizes/font_size = 22
 
 [node name="MenuButton" type="Button" parent="UI"]
-offset_left = 420.0
-offset_top = 380.0
-offset_right = 580.0
-offset_bottom = 440.0
-text = "主菜单"
-theme_override_font_sizes/font_size = 24
+offset_left = 430.0
+offset_top = 548.0
+offset_right = 610.0
+offset_bottom = 594.0
+text = "메인으로"
+theme_override_font_sizes/font_size = 22
 
 [connection signal="pressed" from="UI/RetryButton" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="UI/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/MenuButton"  to="." method="_on_menu_pressed"]

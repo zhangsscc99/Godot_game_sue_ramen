@@ -1,38 +1,40 @@
 extends Node2D
 
-# ── 锅的状态机 ──────────────────────────────────────────
+# ── 냄비 상태 머신 ──────────────────────────────────────
 enum State {
-	IDLE,          # 空锅等待
-	HAS_WATER,     # 已加水，等待沸腾
-	BOILING,       # 沸腾中，等待加面
-	HAS_NOODLE,    # 已加面，等待调料
-	HAS_SEASONING, # 已加调料，可选配料或直接完成
-	DONE,          # 完成，等待端走
-	BURNT          # 烧糊
+	IDLE,
+	HAS_WATER,
+	BOILING,
+	HAS_NOODLE,
+	HAS_SEASONING,
+	DONE,
+	BURNT
 }
 
-const BOIL_TIME     := 4.0   # 加水后多久沸腾
-const BURN_TIME     := 8.0   # 超时未处理就烧糊（从 BOILING 开始计）
-const DONE_TIMEOUT  := 6.0   # 完成后多久没端走就烧糊
+const BOIL_TIME     := 4.0
+const BURN_TIME     := 8.0
+const DONE_TIMEOUT  := 6.0
 
 var state: State = State.IDLE
 var timer: float  = 0.0
-var toppings: Array[String] = []   # 已加的配料
+var toppings: Array[String] = []
 
-# 节点引用（在 _ready 中获取）
-@onready var pot_sprite:      Sprite2D  = $PotSprite
-@onready var status_label:    Label     = $StatusLabel
-@onready var progress_bar:    ProgressBar = $ProgressBar
-@onready var flame_sprite:    Sprite2D  = $FlameSprite
+# 텍스처 (외부에서 주입)
+@export var tex_empty:    Texture2D
+@export var tex_boiling:  Texture2D
+@export var tex_done:     Texture2D
+
+@onready var pot_sprite:      Sprite2D     = $PotSprite
+@onready var status_label:    Label        = $StatusLabel
+@onready var progress_bar:    ProgressBar  = $ProgressBar
+@onready var flame_sprite:    Sprite2D     = $FlameSprite
 @onready var topping_display: HBoxContainer = $ToppingDisplay
-@onready var highlight:       Panel     = $Highlight
+@onready var highlight:       Panel        = $Highlight
 
-# 信号
 signal state_changed(pot: Node2D, new_state: State)
 signal pot_done(pot: Node2D, score: int)
 signal pot_burnt(pot: Node2D)
 
-# ── 生命周期 ───────────────────────────────────────────
 func _ready() -> void:
 	_refresh_visuals()
 
@@ -43,26 +45,17 @@ func _process(delta: float) -> void:
 			progress_bar.value = timer / BOIL_TIME * 100.0
 			if timer >= BOIL_TIME:
 				_set_state(State.BOILING)
-
-		State.BOILING:
+		State.BOILING, State.HAS_NOODLE, State.HAS_SEASONING:
 			timer += delta
 			progress_bar.value = (1.0 - timer / BURN_TIME) * 100.0
 			if timer >= BURN_TIME:
 				_burn()
-
-		State.HAS_NOODLE, State.HAS_SEASONING:
-			timer += delta
-			progress_bar.value = (1.0 - timer / BURN_TIME) * 100.0
-			if timer >= BURN_TIME:
-				_burn()
-
 		State.DONE:
 			timer += delta
 			progress_bar.value = (1.0 - timer / DONE_TIMEOUT) * 100.0
 			if timer >= DONE_TIMEOUT:
 				_burn()
 
-# ── 外部调用：放入食材 ─────────────────────────────────
 func add_ingredient(ingredient: String) -> bool:
 	match ingredient:
 		"water":
@@ -77,7 +70,7 @@ func add_ingredient(ingredient: String) -> bool:
 			if state == State.HAS_NOODLE:
 				_set_state(State.HAS_SEASONING)
 				return true
-		"egg", "leek", "bok_choy":
+		"egg", "onion", "leek", "bok_choy":
 			if state == State.HAS_SEASONING:
 				toppings.append(ingredient)
 				_refresh_visuals()
@@ -86,9 +79,8 @@ func add_ingredient(ingredient: String) -> bool:
 			if state == State.HAS_SEASONING or state == State.DONE:
 				_complete()
 				return true
-	return false   # 放入失败
+	return false
 
-# ── 内部状态切换 ───────────────────────────────────────
 func _set_state(new_state: State) -> void:
 	state = new_state
 	timer = 0.0
@@ -105,66 +97,70 @@ func _complete() -> void:
 func _burn() -> void:
 	_set_state(State.BURNT)
 	pot_burnt.emit(self)
-	# 自动 2 秒后重置
 	await get_tree().create_timer(2.0).timeout
 	_set_state(State.IDLE)
 	toppings.clear()
 
-# ── 计分 ──────────────────────────────────────────────
 func _calc_score() -> int:
 	var base := 1000
 	for _t in toppings:
 		base += 200
 	return base
 
-# ── 视觉刷新 ──────────────────────────────────────────
 func _refresh_visuals() -> void:
 	if not is_inside_tree():
 		return
 
 	match state:
 		State.IDLE:
-			status_label.text = "空锅"
-			status_label.modulate = Color.WHITE
+			status_label.text = "빈냄비"
+			status_label.modulate = Color(0.7, 0.4, 0.6, 1)
 			flame_sprite.visible = false
 			progress_bar.visible = false
 			pot_sprite.modulate = Color.WHITE
+			if tex_empty: pot_sprite.texture = tex_empty
 		State.HAS_WATER:
-			status_label.text = "等待沸腾..."
+			status_label.text = "끓는 중..."
+			status_label.modulate = Color(0.3, 0.6, 1.0, 1)
 			flame_sprite.visible = true
 			progress_bar.visible = true
 			progress_bar.modulate = Color(0.4, 0.8, 1.0)
+			if tex_empty: pot_sprite.texture = tex_empty
 		State.BOILING:
-			status_label.text = "沸腾！加面！"
-			status_label.modulate = Color(1.0, 0.6, 0.0)
+			status_label.text = "면 투입!"
+			status_label.modulate = Color(1.0, 0.5, 0.0, 1)
 			flame_sprite.visible = true
 			progress_bar.visible = true
 			progress_bar.modulate = Color(1.0, 0.4, 0.0)
+			if tex_boiling: pot_sprite.texture = tex_boiling
 		State.HAS_NOODLE:
-			status_label.text = "加调料！"
-			progress_bar.modulate = Color(1.0, 0.6, 0.0)
+			status_label.text = "양념 추가!"
+			status_label.modulate = Color(1.0, 0.4, 0.0, 1)
+			progress_bar.modulate = Color(1.0, 0.5, 0.0)
+			if tex_boiling: pot_sprite.texture = tex_boiling
 		State.HAS_SEASONING:
-			status_label.text = "可加配料或端走"
-			status_label.modulate = Color(0.2, 0.8, 0.2)
+			status_label.text = "토핑/완성!"
+			status_label.modulate = Color(0.1, 0.75, 0.2, 1)
 			progress_bar.modulate = Color(0.2, 0.8, 0.2)
+			if tex_done: pot_sprite.texture = tex_done
 		State.DONE:
-			status_label.text = "快端走！"
-			progress_bar.modulate = Color(0.2, 0.8, 0.2)
+			status_label.text = "빨리 내봐!"
+			status_label.modulate = Color(0.1, 0.75, 0.2, 1)
+			if tex_done: pot_sprite.texture = tex_done
 		State.BURNT:
-			status_label.text = "烧糊了！"
-			status_label.modulate = Color(0.8, 0.2, 0.0)
+			status_label.text = "탔어요!"
+			status_label.modulate = Color(0.8, 0.1, 0.0, 1)
 			pot_sprite.modulate = Color(0.5, 0.3, 0.1)
 			progress_bar.visible = false
 			flame_sprite.visible = false
+			if tex_empty: pot_sprite.texture = tex_empty
 
-	# 更新配料显示
 	for child in topping_display.get_children():
 		child.queue_free()
 	for t in toppings:
 		var lbl := Label.new()
-		lbl.text = "🥚" if t == "egg" else "🥬"
+		lbl.text = "🥚" if t == "egg" else "🌿"
 		topping_display.add_child(lbl)
 
-# 鼠标悬停高亮
 func set_highlighted(on: bool) -> void:
 	highlight.visible = on
