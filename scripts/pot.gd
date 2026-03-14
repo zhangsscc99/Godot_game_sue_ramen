@@ -113,42 +113,42 @@ func _refresh_visuals() -> void:
 
 	match state:
 		State.IDLE:
-			status_label.text = "빈냄비"
+			status_label.text = "空锅"
 			status_label.modulate = Color(0.7, 0.4, 0.6, 1)
 			flame_sprite.visible = false
 			progress_bar.visible = false
 			pot_sprite.modulate = Color.WHITE
 			if tex_empty: pot_sprite.texture = tex_empty
 		State.HAS_WATER:
-			status_label.text = "끓는 중..."
+			status_label.text = "烧水中..."
 			status_label.modulate = Color(0.3, 0.6, 1.0, 1)
 			flame_sprite.visible = true
 			progress_bar.visible = true
 			progress_bar.modulate = Color(0.4, 0.8, 1.0)
 			if tex_empty: pot_sprite.texture = tex_empty
 		State.BOILING:
-			status_label.text = "면 투입!"
+			status_label.text = "加面！"
 			status_label.modulate = Color(1.0, 0.5, 0.0, 1)
 			flame_sprite.visible = true
 			progress_bar.visible = true
 			progress_bar.modulate = Color(1.0, 0.4, 0.0)
 			if tex_boiling: pot_sprite.texture = tex_boiling
 		State.HAS_NOODLE:
-			status_label.text = "양념 추가!"
+			status_label.text = "加调料！"
 			status_label.modulate = Color(1.0, 0.4, 0.0, 1)
 			progress_bar.modulate = Color(1.0, 0.5, 0.0)
 			if tex_boiling: pot_sprite.texture = tex_boiling
 		State.HAS_SEASONING:
-			status_label.text = "토핑/완성!"
+			status_label.text = "加配料/完成！"
 			status_label.modulate = Color(0.1, 0.75, 0.2, 1)
 			progress_bar.modulate = Color(0.2, 0.8, 0.2)
 			if tex_done: pot_sprite.texture = tex_done
 		State.DONE:
-			status_label.text = "빨리 내봐!"
+			status_label.text = "快端走！"
 			status_label.modulate = Color(0.1, 0.75, 0.2, 1)
 			if tex_done: pot_sprite.texture = tex_done
 		State.BURNT:
-			status_label.text = "탔어요!"
+			status_label.text = "烧糊了！"
 			status_label.modulate = Color(0.8, 0.1, 0.0, 1)
 			pot_sprite.modulate = Color(0.5, 0.3, 0.1)
 			progress_bar.visible = false

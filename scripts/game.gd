@@ -108,14 +108,14 @@ func _show_msg(text: String, color: Color = Color.WHITE) -> void:
 
 func _ingredient_name(id: String) -> String:
 	match id:
-		"water":     return "물"
-		"ramen":     return "면"
-		"seasoning": return "양념"
-		"egg":       return "계란"
-		"onion":     return "파"
-		"leek":      return "파"
-		"bok_choy":  return "파"
-		"serve":     return "완성"
+		"water":     return "水"
+		"ramen":     return "面"
+		"seasoning": return "调料"
+		"egg":       return "鸡蛋"
+		"onion":     return "葱"
+		"leek":      return "葱"
+		"bok_choy":  return "青菜"
+		"serve":     return "完成"
 	return id
 
 func _end_game() -> void:

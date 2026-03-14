@@ -67,7 +67,7 @@ offset_left = -68.0
 offset_top = -58.0
 offset_right = 68.0
 offset_bottom = -38.0
-text = "빈냄비"
+text = "空锅"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.15, 0.4, 1)
@@ -117,7 +117,7 @@ offset_left = -68.0
 offset_top = -58.0
 offset_right = 68.0
 offset_bottom = -38.0
-text = "빈냄비"
+text = "空锅"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.15, 0.4, 1)
@@ -167,7 +167,7 @@ offset_left = -68.0
 offset_top = -58.0
 offset_right = 68.0
 offset_bottom = -38.0
-text = "빈냄비"
+text = "空锅"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.15, 0.4, 1)
@@ -217,7 +217,7 @@ offset_left = -68.0
 offset_top = -58.0
 offset_right = 68.0
 offset_bottom = -38.0
-text = "빈냄비"
+text = "空锅"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.5, 0.15, 0.4, 1)
@@ -364,42 +364,42 @@ theme_override_constants/separation = 6
 
 [node name="L1" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "물"
+text = "水"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
 
 [node name="L2" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "면"
+text = "面"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
 
 [node name="L3" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "양념"
+text = "调料"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
 
 [node name="L4" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "계란"
+text = "鸡蛋"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
 
 [node name="L5" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "파"
+text = "葱"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
 
 [node name="L6" type="Label" parent="UI/IngredientLabels"]
 custom_minimum_size = Vector2(58, 0)
-text = "완성"
+text = "完成"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.1, 0.35, 1)
