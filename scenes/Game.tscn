@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://game_scene"]
+[gd_scene load_steps=20 format=3 uid="uid://game_scene"]
 
 [ext_resource type="Script"    path="res://scripts/game.gd"              id="1"]
 [ext_resource type="Script"    path="res://scripts/pot.gd"               id="2"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" path="res://assets/sue_original/egg.png"        id="13"]
 [ext_resource type="Texture2D" path="res://assets/sue_original/onion.png"      id="14"]
 [ext_resource type="Texture2D" path="res://assets/sue_original/pot_done.png"   id="15"]
+[ext_resource type="Texture2D" path="res://assets/downloaded/sue_extracted/sprites/DefineSprite_229/1.png" id="16"]
+[ext_resource type="Texture2D" path="res://assets/downloaded/sue_extracted/sprites/DefineSprite_234/1.png" id="17"]
+[ext_resource type="Texture2D" path="res://assets/downloaded/sue_extracted/sprites/DefineSprite_383/1.png" id="18"]
+[ext_resource type="Texture2D" path="res://assets/downloaded/sue_extracted/sprites/DefineSprite_334/1.png" id="19"]
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1")
@@ -28,10 +32,41 @@ texture = ExtResource("4")
 stretch_mode = 0
 
 ; ════════════ 4个锅（烹饪台，加大 scale=1.7）════════════
+[node name="Workbench" type="Node2D" parent="."]
+
+[node name="CounterTop" type="Sprite2D" parent="Workbench"]
+position = Vector2(0, 255)
+scale = Vector2(1.6, 1.5)
+texture = ExtResource("16")
+centered = false
+
+[node name="CounterFront" type="Sprite2D" parent="Workbench"]
+position = Vector2(22, 412)
+scale = Vector2(1.6, 1.5)
+texture = ExtResource("17")
+centered = false
+
+[node name="ControlStrip" type="Sprite2D" parent="Workbench"]
+position = Vector2(78, 356)
+scale = Vector2(1.6, 1.5)
+texture = ExtResource("18")
+centered = false
+
+[node name="TrayDecor" type="Sprite2D" parent="Workbench"]
+position = Vector2(542, 360)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("19")
+centered = false
+
+[node name="KettleDecor" type="Sprite2D" parent="Workbench"]
+position = Vector2(370, 390)
+texture = ExtResource("10")
+scale = Vector2(1.45, 1.45)
+
 [node name="Pots" type="Node2D" parent="."]
 
 [node name="Pot1" type="Node2D" parent="Pots"]
-position = Vector2(175, 325)
+position = Vector2(120, 330)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -39,10 +74,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot1"]
 texture = ExtResource("7")
-scale = Vector2(2.2, 2.2)
+scale = Vector2(1.45, 1.45)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot1"]
-position = Vector2(0, 72)
+position = Vector2(0, 50)
 texture = ExtResource("6")
 scale = Vector2(0.5, 0.5)
 visible = false
@@ -80,7 +115,7 @@ offset_right = 36.0
 offset_bottom = 86.0
 
 [node name="Pot2" type="Node2D" parent="Pots"]
-position = Vector2(360, 325)
+position = Vector2(250, 330)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -88,10 +123,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot2"]
 texture = ExtResource("7")
-scale = Vector2(2.2, 2.2)
+scale = Vector2(1.45, 1.45)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot2"]
-position = Vector2(0, 72)
+position = Vector2(0, 50)
 texture = ExtResource("6")
 scale = Vector2(0.5, 0.5)
 visible = false
@@ -129,7 +164,7 @@ offset_right = 36.0
 offset_bottom = 86.0
 
 [node name="Pot3" type="Node2D" parent="Pots"]
-position = Vector2(545, 325)
+position = Vector2(120, 420)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -137,10 +172,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot3"]
 texture = ExtResource("7")
-scale = Vector2(2.2, 2.2)
+scale = Vector2(1.45, 1.45)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot3"]
-position = Vector2(0, 72)
+position = Vector2(0, 50)
 texture = ExtResource("6")
 scale = Vector2(0.5, 0.5)
 visible = false
@@ -178,7 +213,7 @@ offset_right = 36.0
 offset_bottom = 86.0
 
 [node name="Pot4" type="Node2D" parent="Pots"]
-position = Vector2(730, 325)
+position = Vector2(250, 420)
 script = ExtResource("2")
 tex_empty   = ExtResource("7")
 tex_boiling = ExtResource("8")
@@ -186,10 +221,10 @@ tex_done    = ExtResource("9")
 
 [node name="PotSprite" type="Sprite2D" parent="Pots/Pot4"]
 texture = ExtResource("7")
-scale = Vector2(2.2, 2.2)
+scale = Vector2(1.45, 1.45)
 
 [node name="FlameSprite" type="Sprite2D" parent="Pots/Pot4"]
-position = Vector2(0, 72)
+position = Vector2(0, 50)
 texture = ExtResource("6")
 scale = Vector2(0.5, 0.5)
 visible = false

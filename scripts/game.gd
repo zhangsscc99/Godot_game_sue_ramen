@@ -21,7 +21,7 @@ var drag_icon: Sprite2D = null
 
 func _ready() -> void:
 	# 连接所有锅的信号
-	for pot in pots_container.get_children():
+	for pot: Node2D in pots_container.get_children():
 		pot.pot_done.connect(_on_pot_done)
 		pot.pot_burnt.connect(_on_pot_burnt)
 
@@ -69,13 +69,22 @@ func _input(event: InputEvent) -> void:
 
 func _try_drop_on_pot() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
+	var best_pot: Node2D = null
+	var best_dist_sq: float = INF
+
 	for pot: Node2D in pots_container.get_children():
-		var pot_rect := Rect2(pot.global_position - Vector2(80, 60), Vector2(160, 120))
-		if pot_rect.has_point(mouse_pos):
-			var accepted: bool = pot.call("add_ingredient", dragging_ingredient)
-			if accepted:
-				_show_msg("+食材：" + _ingredient_name(dragging_ingredient))
-			break
+		var pot_rect: Rect2 = Rect2(pot.global_position - Vector2(65, 50), Vector2(130, 100))
+		if not pot_rect.has_point(mouse_pos):
+			continue
+		var dist_sq: float = pot.global_position.distance_squared_to(mouse_pos)
+		if dist_sq < best_dist_sq:
+			best_dist_sq = dist_sq
+			best_pot = pot
+
+	if best_pot:
+		var accepted: bool = bool(best_pot.call("add_ingredient", dragging_ingredient))
+		if accepted:
+			_show_msg("+食材：" + _ingredient_name(dragging_ingredient))
 	_end_drag()
 
 func _end_drag() -> void:
